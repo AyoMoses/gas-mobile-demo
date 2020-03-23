@@ -1,0 +1,7 @@
+{
+  "name": "gas-mobile-demo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
