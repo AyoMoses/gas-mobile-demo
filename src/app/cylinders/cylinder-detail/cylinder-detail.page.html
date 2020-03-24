@@ -1,9 +1,69 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cylinder-detail</ion-title>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cylinders"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ loadedCylinder.size }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid class="ion-no-padding">
 
+    <ion-row>
+      <ion-col class="ion-no-padding">
+
+        <ion-img [src]="loadedCylinder.imageUrl"></ion-img>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <h1> {{ loadedCylinder.title }} </h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            Refill price: &#8358;{{ loadedCylinder.price }} only.
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            Cylinder detail: {{ loadedCylinder.productDetail }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            Cylinder weight: {{ loadedCylinder.weight }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item>
+            Cylinder size: {{ loadedCylinder.size }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

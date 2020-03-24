@@ -5,7 +5,16 @@ const routes: Routes = [
   { path: '', redirectTo: 'cylinders', pathMatch: 'full' },
   {
     path: 'cylinders',
-    loadChildren: () => import('./cylinders/cylinders.module').then( m => m.CylindersPageModule)
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./cylinders/cylinders.module').then( m => m.CylindersPageModule),
+      },
+      {
+        path: ':cylinderSize',
+        loadChildren: () => import('./cylinders/cylinder-detail/cylinder-detail.module').then( m => m.CylinderDetailPageModule)
+      }
+    ]
   },
 ];
 
