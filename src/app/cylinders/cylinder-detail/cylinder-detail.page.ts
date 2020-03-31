@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { CylindersService } from '../cylinders.service';
 import { Cylinder } from '../cylinder-model';
@@ -14,7 +14,8 @@ export class CylinderDetailPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private cylindersService: CylindersService
+    private cylindersService: CylindersService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -26,5 +27,10 @@ export class CylinderDetailPage implements OnInit {
       const cylinderSize = paramMap.get('cylinderSize');
       this.loadedCylinder = this.cylindersService.getCylinder(cylinderSize);
     });
+  }
+
+  onCheckOut() {
+
+    this.router.navigateByUrl('/checkout');
   }
 }

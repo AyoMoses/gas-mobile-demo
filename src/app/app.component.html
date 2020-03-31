@@ -1,3 +1,33 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- SIDEBARS TAKE THE ION HEADER AND CONTENT COMPONENTS -->
+  <ion-menu side="start" contentId="main" type="overlay">
+
+    <ion-header>
+
+      <ion-toolbar>
+        <ion-title>
+          Gas Station
+        </ion-title>
+      </ion-toolbar>
+
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+
+        <ion-menu-toggle>
+          <!-- ADD BUTTON ON ION-ITEM TO ENABLE RIPPLE EFFECT WHEN CLICKED -->
+          <ion-item lines="none" (click)="onLogout()" button>
+            <ion-icon name="exit-outline" slot="start"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- APP ROUTER OUTLET takes the "main" attribute which is ued to toggle the sidebar -->
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
