@@ -17,6 +17,14 @@
 
         <ion-menu-toggle>
           <!-- ADD BUTTON ON ION-ITEM TO ENABLE RIPPLE EFFECT WHEN CLICKED -->
+          <ion-item lines="none" routerLink="/cylinders" button>
+            <ion-icon name="leaf-outline" slot="start"></ion-icon>
+            <ion-label>Cylinders</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <!-- ADD BUTTON ON ION-ITEM TO ENABLE RIPPLE EFFECT WHEN CLICKED -->
           <ion-item lines="none" (click)="onLogout()" button>
             <ion-icon name="exit-outline" slot="start"></ion-icon>
             <ion-label>Logout</ion-label>
