@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{ selectedCylinder.size }} </ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h5 class="ion-margin ion-text-center">{{ selectedCylinder.title }}</h5>
+  <h5 class="ion-margin ion-text-center">{{ selectedCylinder.price }}</h5>
+
+  <ion-button class="ion-justify-content-center ion-align-items-center" color="secondary" (click)="onCheckOut()">CheckOut!</ion-button>
+</ion-content>

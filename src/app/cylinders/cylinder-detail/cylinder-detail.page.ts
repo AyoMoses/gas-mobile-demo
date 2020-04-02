@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { CylindersService } from '../cylinders.service';
 import { Cylinder } from '../cylinder-model';
+import { ModalController, NavController } from '@ionic/angular';
+import { CheckoutComponent } from 'src/app/checkout/checkout.component';
 
 @Component({
   selector: 'app-cylinder-detail',
@@ -16,21 +18,37 @@ export class CylinderDetailPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private cylindersService: CylindersService,
     private router: Router,
+    private modalCtrl: ModalController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('cylinderSize')) {
-        // redirect
+        this.navCtrl.navigateBack('/cylinders');
         return;
       }
-      const cylinderSize = paramMap.get('cylinderSize');
-      this.loadedCylinder = this.cylindersService.getCylinder(cylinderSize);
+      this.loadedCylinder = this.cylindersService.getCylinder(
+        paramMap.get('cylinderSize')
+      );
     });
   }
 
   onCheckOut() {
-
-    this.router.navigateByUrl('/checkout');
+    this.modalCtrl
+      .create({
+        component: CheckoutComponent,
+        componentProps: { selectedCylinder: this.loadedCylinder }
+      })
+      .then(modalEl => {
+        modalEl.present();
+        return modalEl.onDidDismiss();
+      })
+      .then(resultData => {
+        console.log(resultData.data, resultData.role);
+        if (resultData.role === 'confirm') {
+          console.log('SUCCESSFUL!');
+        }
+      });
   }
 }
