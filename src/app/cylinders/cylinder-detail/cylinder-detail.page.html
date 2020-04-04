@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/cylinders"></ion-back-button>
     </ion-buttons>
@@ -20,7 +20,7 @@
 
     <ion-row>
       <ion-col class="ion-text-center">
-        <h1> {{ loadedCylinder.title }} </h1>
+        <h1 class="cylinder-detail-title"> {{ loadedCylinder.title }} </h1>
       </ion-col>
     </ion-row>
 
@@ -28,7 +28,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Refill price: {{ loadedCylinder.price | currency:'NGN':'symbol-narrow' }} only.
+            Refill price: <ion-text color="primary" class="detail-value">{{ loadedCylinder.price | currency:'NGN':'symbol-narrow' }}</ion-text> only.
           </ion-item>
         </ion-list>
       </ion-col>
@@ -59,7 +59,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Cylinder size: {{ loadedCylinder.size }}
+            Cylinder size: <span class="detail-value"> {{ loadedCylinder.size }} </span>
           </ion-item>
         </ion-list>
       </ion-col>
@@ -67,5 +67,5 @@
 
   </ion-grid>
 
-  <ion-button (click)="onCheckOut()" color="secondary" class="ion-margin">Order refill</ion-button>
+  <ion-button (click)="onCheckOut()" class="ion-margin">Order refill</ion-button>
 </ion-content>
