@@ -1,4 +1,12 @@
-ion-button {
+.signup-btn-wrap {
 
-    --box-shadow: 1px 4px 5px 0 rgb(var(--ion-color-primary-rgb), .5);
+
+    margin-top: 3rem;
+
+    .sign-up-btn {
+
+        --box-shadow: 3px 5px 5px 0 rgb(var(--ion-color-primary-rgb), .5);
+
+
+    }
 }
