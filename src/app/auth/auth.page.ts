@@ -13,6 +13,7 @@ import { AuthService } from './auth.service';
 export class AuthPage implements OnInit {
   // property
   isLoading = false;
+  isLogin = true;
 
   constructor(
     private authService: AuthService,
@@ -36,7 +37,25 @@ export class AuthPage implements OnInit {
     });
   }
 
+  // switch our authentication mode based on state. we invert. if its false its true if its true its false
   onSubmit(form: NgForm) {
-    console.log(form);
+    if (!form.valid) {
+      return;
+    }
+    // IF YOU HAVE A VALID FORM THEN WE MAKE A POSITIVE IF CHECK AND PROCEED TO THE BELOW
+    const email = form.value.email;
+    const password = form.value.password;
+    console.log(email, password);
+
+    if (this.isLogin) {
+      // send a request to login to servers
+    } else {
+      // send request to signup to servers
+    }
   }
+
+  onSwitchAuthMode() {
+    this.isLogin = !this.isLogin;
+  }
+
 }
