@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CylindersService } from '../cylinders.service';
 import { Cylinder } from '../cylinder-model';
 import { ModalController, NavController } from '@ionic/angular';
-import { CheckoutComponent } from 'src/app/checkout/checkout.component';
+import { CheckoutPage } from '../../checkout/checkout.page';
 
 @Component({
   selector: 'app-cylinder-detail',
@@ -37,7 +37,7 @@ export class CylinderDetailPage implements OnInit {
   onCheckOut() {
     this.modalCtrl
       .create({
-        component: CheckoutComponent,
+        component: CheckoutPage,
         componentProps: { selectedCylinder: this.loadedCylinder }
       })
       .then(modalEl => {

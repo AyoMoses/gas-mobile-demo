@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> {{ selectedCylinder.size }} </ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h5 class="ion-margin ion-text-center">{{ selectedCylinder.title }}</h5>
+  <h5 class="ion-margin ion-text-center">{{ selectedCylinder.price }}</h5>
+
+  <div class="checkout-btn-wrap">
+    <!-- <ion-button  (click)="onCheckOut()">CheckOut!</ion-button> -->
+    
+    <!-- <angular4-paystack [email]="email" [amount]="selectedCylinder.price * 100" [channels]="channels" [ref]="randomId"
+      [class]="'checkout-btn'" (close)="paymentCancel()" (callback)="paymentDone($event)">
+      Pay with Paystack
+    </angular4-paystack> -->
+
+    <button
+    angular4-paystack
+    [key]="publicKey"
+    [email]="email"
+    [amount]="selectedCylinder.price * 100"
+    [ref]="randomId"
+    (paymentInit)="paymentInit()"
+    (close)="paymentCancel()"
+    (callback)="paymentDone($event)"
+    [channels]="channels"
+    [class]="'checkout-btn'"
+  >
+    Pay with Paystack
+  </button>
+  </div>
+</ion-content>
