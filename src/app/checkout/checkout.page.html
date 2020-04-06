@@ -17,25 +17,16 @@
 
   <div class="checkout-btn-wrap">
     <!-- <ion-button  (click)="onCheckOut()">CheckOut!</ion-button> -->
-    
-    <!-- <angular4-paystack [email]="email" [amount]="selectedCylinder.price * 100" [channels]="channels" [ref]="randomId"
-      [class]="'checkout-btn'" (close)="paymentCancel()" (callback)="paymentDone($event)">
-      Pay with Paystack
-    </angular4-paystack> -->
-
-    <button
-    angular4-paystack
-    [key]="publicKey"
-    [email]="email"
-    [amount]="selectedCylinder.price * 100"
-    [ref]="randomId"
-    (paymentInit)="paymentInit()"
-    (close)="paymentCancel()"
-    (callback)="paymentDone($event)"
-    [channels]="channels"
-    [class]="'checkout-btn'"
-  >
-    Pay with Paystack
-  </button>
+    <ion-button class="checkout-btn"
+        angular4-paystack
+        [key]="publicKey"
+        [email]="email"
+        [amount]="selectedCylinder.price * 100"
+        [ref]="randomId"
+        (paymentInit)="paymentInit()"
+        (close)="paymentCancel()"
+        (callback)="paymentDone($event)"
+        [channels]="channels">
+      <ion-icon name="lock"></ion-icon>Checkout</ion-button>
   </div>
 </ion-content>

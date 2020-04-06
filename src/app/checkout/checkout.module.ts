@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { Angular4PaystackModule } from 'angular4-paystack';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -17,8 +15,8 @@ import { CheckoutPage } from './checkout.page';
     IonicModule,
     CheckoutPageRoutingModule,
     ReactiveFormsModule,
-    Angular4PaystackModule
   ],
   declarations: [CheckoutPage]
+  
 })
 export class CheckoutPageModule {}

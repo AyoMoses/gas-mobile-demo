@@ -8,7 +8,7 @@ import { CylinderDetailPageRoutingModule } from './cylinder-detail-routing.modul
 
 import { CylinderDetailPage } from './cylinder-detail.page';
 
-import { CheckoutPage } from 'src/app/checkout/checkout.page';
+// import { CheckoutPage } from 'src/app/checkout/checkout.page';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { CheckoutPage } from 'src/app/checkout/checkout.page';
     IonicModule,
     CylinderDetailPageRoutingModule
   ],
-  declarations: [CylinderDetailPage, CheckoutPage],
-  entryComponents: [CheckoutPage]
+  declarations: [CylinderDetailPage],
+  // entryComponents: [CheckoutPage]
 })
 export class CylinderDetailPageModule {}
