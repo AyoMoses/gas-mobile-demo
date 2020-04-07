@@ -36,7 +36,7 @@ export class CheckoutPage implements OnInit {
   }
 
   paymentInit() {
-    
+
   }
 
 }

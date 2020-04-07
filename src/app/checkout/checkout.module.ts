@@ -17,6 +17,5 @@ import { CheckoutPage } from './checkout.page';
     ReactiveFormsModule,
   ],
   declarations: [CheckoutPage]
-  
 })
 export class CheckoutPageModule {}
