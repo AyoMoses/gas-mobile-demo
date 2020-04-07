@@ -9,7 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class CheckoutPage implements OnInit {
   @Input() selectedCylinder: Cylinder;
-  public email: 'odukoyaayodeji@gmail.com';
+  public email = 'odukoyaayodeji@gmail.com';
 
   public publicKey = 'pk_test_5827a2effc24a54f6dc833ca0ccfdaaf4dde997b';
   public channels = ['bank', 'card', 'ussd', 'qr'];
