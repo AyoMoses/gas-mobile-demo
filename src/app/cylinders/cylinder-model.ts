@@ -1,8 +1,12 @@
-export interface Cylinder {
-    size: string;
-    imageUrl: string;
-    productDetail: string;
-    price: number;
-    weight: string;
-    title: string;
+export class Cylinder {
+  constructor(
+    public cylinderId: string,
+    public size: string,
+    public productDetail: string,
+    public imageUrl: string,
+    public price: number,
+    public weight: string,
+    public title: string,
+    public userId: string
+  ) {}
 }

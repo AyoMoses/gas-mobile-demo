@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
 import { Cylinder } from './cylinder-model';
 import { CylindersService } from './cylinders.service';
 
@@ -7,13 +9,29 @@ import { CylindersService } from './cylinders.service';
   templateUrl: './cylinders.page.html',
   styleUrls: ['./cylinders.page.scss'],
 })
-export class CylindersPage implements OnInit {
+export class CylindersPage implements OnInit, OnDestroy {
   cylinders: Cylinder[];
+  private cylindersSub: Subscription;
 
-  constructor(private cylindersServices: CylindersService) { }
+  constructor(private cylindersServices: CylindersService) {}
 
   ngOnInit() {
-    this.cylinders = this.cylindersServices.getAllCylinders();
+    this.cylindersSub = this.cylindersServices.cylinders.subscribe(
+      (cylinders) => {
+        this.cylinders = cylinders;
+      }
+    );
   }
 
+  // this.placesSub = this.placesService.places.subscribe((places) => {
+  //   this.loadedPlaces = places;
+  //   this.relevantPlaces = this.loadedPlaces;
+  //   this.listedLoadedPlaces = this.relevantPlaces.slice(1);
+  // });
+
+  ngOnDestroy() {
+    if (this.cylindersSub) {
+      this.cylindersSub.unsubscribe();
+    }
+  }
 }

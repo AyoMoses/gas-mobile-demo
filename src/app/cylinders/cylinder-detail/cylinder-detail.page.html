@@ -3,24 +3,29 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/cylinders"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ loadedCylinder.size }}</ion-title>
+    <ion-title>{{ isLoading ? 'Loading...' : cylinder.size }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="ion-no-padding">
+  <!-- SHOW THE SPINNER IF WE ARER LOADING -->
+  <div class="ion-text-center" *ngIf="isLoading">
+    <ion-spinner color="primary"></ion-spinner>
+  </div>
+
+  <ion-grid class="ion-no-padding" *ngIf="!isLoading">
 
     <ion-row>
       <ion-col class="ion-no-padding">
 
-        <ion-img [src]="loadedCylinder.imageUrl"></ion-img>
+        <ion-img [src]="cylinder.imageUrl"></ion-img>
 
       </ion-col>
     </ion-row>
 
     <ion-row>
       <ion-col class="ion-text-center">
-        <h1 class="cylinder-detail-title"> {{ loadedCylinder.title }} </h1>
+        <h1 class="cylinder-detail-title"> {{ cylinder.title }} </h1>
       </ion-col>
     </ion-row>
 
@@ -28,7 +33,8 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Refill price: <ion-text color="primary" class="detail-value">{{ loadedCylinder.price | currency:'NGN':'symbol-narrow' }}</ion-text> only.
+            Refill price: <ion-text color="primary" class="detail-value">
+              {{ cylinder.price | currency:'NGN':'symbol-narrow' }}</ion-text> only.
           </ion-item>
         </ion-list>
       </ion-col>
@@ -38,7 +44,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Cylinder detail: {{ loadedCylinder.productDetail }}
+            Cylinder detail: {{ cylinder.productDetail }}
           </ion-item>
         </ion-list>
       </ion-col>
@@ -49,7 +55,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Cylinder weight: {{ loadedCylinder.weight }}
+            Cylinder weight: {{ cylinder.weight }}
           </ion-item>
         </ion-list>
       </ion-col>
@@ -59,7 +65,7 @@
       <ion-col>
         <ion-list>
           <ion-item>
-            Cylinder size: <span class="detail-value"> {{ loadedCylinder.size }} </span>
+            Cylinder size: <span class="detail-value"> {{ cylinder.size }} </span>
           </ion-item>
         </ion-list>
       </ion-col>
