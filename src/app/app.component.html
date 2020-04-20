@@ -27,7 +27,7 @@
           <!-- ADD BUTTON ON ION-ITEM TO ENABLE RIPPLE EFFECT WHEN CLICKED -->
           <ion-item lines="none" (click)="onLogout()" button>
             <ion-icon name="exit-outline" slot="start"></ion-icon>
-            <ion-label>Logout</ion-label>
+            <ion-label>{{ isLogin ? 'Log in' : 'Log out' }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
 

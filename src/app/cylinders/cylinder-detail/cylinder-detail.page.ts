@@ -31,7 +31,7 @@ export class CylinderDetailPage implements OnInit, OnDestroy {
     private cylindersService: CylindersService,
     private modalCtrl: ModalController,
     private navCtrl: NavController,
-    private loadingCtrl: LoadingController,
+    // private loadingCtrl: LoadingController,
     private authService: AuthService,
     private alertCtrl: AlertController
   ) {}
